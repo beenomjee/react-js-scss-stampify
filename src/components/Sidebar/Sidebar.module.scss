@@ -1,0 +1,76 @@
+@import "../../styles";
+
+.container {
+  padding: $padding;
+  @include flex(column, stretch);
+  height: 100%;
+  & > .top {
+    @include center;
+    & > a > img {
+      width: 15rem;
+      padding: $spacing-unit * 2 0rem $spacing-unit * 5;
+    }
+  }
+  & > .middle {
+    flex: 1;
+    margin-top: $spacing-unit * 5;
+    & > ul {
+      list-style: none;
+      @include flex(column, stretch, flex-start, 0.5rem);
+      & > li {
+        & > a {
+          padding: $padding;
+          color: $tertiary-color;
+          border-radius: 0.5rem;
+          @include flex(row, center, flex-start, 1.6rem);
+          transition: background $transition-duration;
+          & > .icon {
+            font-size: $font-lg;
+            @include center;
+          }
+          & > .text {
+            font-size: $font-sm + 0.2;
+          }
+
+          &.active,
+          &:hover {
+            color: $secondary-color;
+            background-color: rgba($color: $secondary-color, $alpha: 0.2);
+          }
+        }
+      }
+    }
+  }
+  & > .bottom {
+    @include flex(row, center, space-between);
+    user-select: none;
+    margin-top: $spacing-unit * 10;
+    & > .left {
+      @include flex(row, stretch, flex-start, 1.6rem);
+      & > img {
+        width: 4rem;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      & > .info {
+        padding: $spacing-unit 0rem;
+        @include flex(column, flex-start, space-between);
+        & > .name {
+          color: $primary-color;
+          font-weight: 500;
+          font-size: $font-sm;
+        }
+        & > .scale {
+          color: rgba($color: $primary-color, $alpha: 0.6);
+        }
+      }
+    }
+    & > .right {
+      & > span {
+        font-size: $font-lg;
+        cursor: pointer;
+      }
+    }
+  }
+}
